@@ -115,4 +115,4 @@ nproc_per_node：每个物理节点上面进程的数量。
 group：进程组，默认只有一个组。
 world size：全局（一个分布式任务）中rank的数量。每个node包含16个GPU，且nproc_per_node=8，nnodes=3，机器的node_rank=5，则word_size=3*8=24。
 ```
-![Fig](.\\Fig\\1.jpg)
+![Fig](Fig/1.jpg)
