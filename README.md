@@ -102,3 +102,14 @@ optional arguments:
   --dummy               use fake data to benchmark
 
 ```
+## 名词解释
+
+```bash
+node：物理节点，就是一台机器。节点内部可以有多个GPU（一台机器有多卡）。
+rank & local_rank
+nnodes
+node_rank
+nproc_per_node
+group
+world size
+```
