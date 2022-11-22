@@ -168,9 +168,9 @@ def main_worker(gpu, ngpus_per_node, args):
     elif args.gpu is not None and torch.cuda.is_available():
         torch.cuda.set_device(args.gpu)
         model = model.cuda(args.gpu)
-    elif torch.backends.mps.is_available():
-        device = torch.device("mps")
-        model = model.to(device)
+    # elif torch.backends.mps.is_available():
+    #     device = torch.device("mps")
+    #     model = model.to(device)
     else:
         # DataParallel will divide and allocate batch_size to all available GPUs
         if args.arch.startswith('alexnet') or args.arch.startswith('vgg'):
