@@ -105,11 +105,14 @@ optional arguments:
 ## 名词解释
 
 ```bash
+This part from: https://blog.csdn.net/hxxjxw/article/details/119606518
 node：物理节点，就是一台机器。节点内部可以有多个GPU（一台机器有多卡）。
-rank & local_rank
-nnodes
-node_rank
-nproc_per_node
-group
-world size
+rank：用于表示进程的序号，用于进程间通信。每一个进程对应于一个rank。rank=0的进程为master进程。
+local_rank：rank是指在整个分布式任务中进程的序号，而local_rank是指在一台机器上（一个node）进程的相对序号，例如机器一中有0-7节点，机器二上也可以有0-7节点。local_rank在node间相互独立。单机多卡时rank=local_rank。
+nnodes：物理节点的数量。
+node_rank：物理节点的序号。
+nproc_per_node：每个物理节点上面进程的数量。
+group：进程组，默认只有一个组。
+world size：全局（一个分布式任务）中rank的数量。每个node包含16个GPU，且nproc_per_node=8，nnodes=3，机器的node_rank=5，则word_size=3*8=24。
 ```
+![Fig](.\\Fig\\1.jpg)
